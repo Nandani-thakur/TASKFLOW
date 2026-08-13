@@ -1,10 +1,17 @@
 // Thin fetch wrapper. Throws an Error with a readable message on any
 // non-2xx response, so callers can catch one thing and show it to the user.
+//
+// In local dev, VITE_API_BASE is unset, so requests go to a relative
+// '/api/...' path and Vite's dev-server proxy forwards them to the backend.
+// In production (e.g. Vercel), set VITE_API_BASE to the deployed backend's
+// URL (e.g. https://taskflow-backend.onrender.com) so requests go straight
+// there instead.
+const API_BASE = import.meta.env.VITE_API_BASE || '';
 
 async function request(path, options = {}) {
   let res;
   try {
-    res = await fetch(`/api${path}`, {
+    res = await fetch(`${API_BASE}/api${path}`, {
       headers: { 'Content-Type': 'application/json' },
       ...options,
     });
