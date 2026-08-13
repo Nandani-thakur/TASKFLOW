@@ -8,6 +8,10 @@ assignment.
 - **Frontend:** React (JS) + Vite
 - **Backend:** Node.js + Express
 - **Database:** SQLite (via `better-sqlite3`)
+- **Frontend:** https://taskflow-git-main-nandani-thakurs-projects.vercel.app/
+- **Backend API:** https://taskflow-backend-cymr.onrender.com
+
+> Note: the backend is on Render's free tier, which sleeps after inactivity — the first request may take ~30-50 seconds to wake it up.
 
 ## Project structure
 
